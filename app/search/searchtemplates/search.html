@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block head %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -8,8 +12,8 @@
 
 <form class="container" method="POST">
 {{ form.hidden_tag() }}
-<h1 class="row">Search a Poke</h1>
-<a href="/saved_pokes" class="row">redirect to saved pokes</a>
+<h1 class="row ">Search any Pokémon character</h1>
+
 
 <div class="row">
     {{ form.pokefind(class='form-control  mt-5 w-50 ', placeholder='Search for a Poke!') }}
@@ -17,7 +21,7 @@
 <div class="row">
     {{ form.search(class='btn btn-light w-25 mt-3') }}
 </div>
-
+<a href="/saved_pokes" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Saved characters</div></a>
 {% if x %}
 
 <ul class="text-center">
@@ -31,8 +35,12 @@
     <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
     <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
     <li><div class="btn btn-light"> Save Poke?</div></li>
+    
+    
+
 </ul>
 {% endif %} 
+
 </form>
 
 {% endblock %}
