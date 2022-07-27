@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(90deg, rgb(138, 226, 194), rgb(98, 156, 236));
+
+   background-size:cover;
+   background-position: 0px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 5vh;
+    
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 2rem;
+}
+h1 {
+    font-size: 4rem;
+}
