@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block head %}
-
-<link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -12,33 +13,27 @@
 
 <form class="container" method="POST">
 {{ form.hidden_tag() }}
+
 <h1 class="row ">Search any Pokémon character</h1>
-
-
-<div class="row">
-    {{ form.pokefind(class='form-control  mt-5 w-50 ', placeholder='Search for a Poke!') }}
-</div>
-<div class="row">
-    {{ form.search(class='btn btn-light w-25 mt-3') }}
-</div>
+<div class="row">{{ form.pokefind(class='form-control  mt-5 w-50 ', placeholder='Search for a Poke!') }}</div>
+<div class="row">{{ form.search(class='btn btn-light w-25 mt-3') }}</div>
 <a href="/saved_pokes" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Saved characters</div></a>
+
 {% if x %}
-
-<ul class="text-center">
-    <div class="mb-5 mt-5">
-    <li><h4> {{ x['Name'].title() }} </h4></li>
-    <li><img src="{{ x['front_shiny URL'] }}" alt=""></li>
-    </div>
-    <li><p>Ability: {{ x['Ability'] }} </p></li>
-    <li><p>Base Experience: {{ x['Base Experience'] }} </p></li>
-    <li><p>Attack Base Stat: {{ x['attack base_stat'] }}</p></li>
-    <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
-    <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
-    <li><div class="btn btn-light"> Save Poke?</div></li>
-    
-    
-
-</ul>
+<div class ='pokecard'>
+  <ul class="text-center">
+      <div class="mb-5 mt-5">
+        <li><h4> {{ x['Name'].title() }} </h4></li>
+        <li><img class='sprite' src="{{ x['front_shiny URL'] }}" alt="{{ x['Name'].title() }} Sprite"></li>
+      </div>
+      <li><p>Ability: {{ x['Ability'] }} </p></li>
+      <li><p>Base Experience: {{ x['Base Experience'] }} </p></li>
+      <li><p>Attack Base Stat: {{ x['attack base_stat'] }}</p></li>
+      <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
+      <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
+      <li method = "POST" action="/saved_pokes">{{ form.save(class="btn btn-light") }}</div></li>
+  </ul>
+</div>
 {% endif %} 
 
 </form>

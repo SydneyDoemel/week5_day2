@@ -6,3 +6,5 @@ class FindPokeInfo(FlaskForm):
     pokefind = StringField(validators=[InputRequired()])
     #maybe add EqualTo to pokefind.. how to make sure the poke name is in the poke API?
     search = SubmitField()
+    save = SubmitField()
+    #save poke here?

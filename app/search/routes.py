@@ -1,6 +1,7 @@
 import requests
 from flask import Blueprint, render_template, request
 from .forms import FindPokeInfo
+
 from app.search.get_poke_func import get_poke_func
 
 search = Blueprint('search', __name__, template_folder='searchtemplates')
@@ -18,5 +19,6 @@ def searchPokes():
             print('validation failed')
     else:
         print('get request made')
-    #put poke funcction here? and import requests at top of this page?
+ 
     return render_template('search.html', form = form)
+
