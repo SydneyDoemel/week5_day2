@@ -9,6 +9,12 @@
 {% block content %}
 <h1>Welcome</h1>
 <div><img src="https://pngimg.com/uploads/pokemon/pokemon_PNG98.png" alt=""></div>
-
+<!-- {% if not current_user.is_authenticated %}
+<a href="/signup">Click here to search for Pokémon</a>
+{% else %} -->
 <a href="/search">Click here to search for Pokémon</a>
+<!-- {% endif %} -->
+
+
+
 {% endblock %}
