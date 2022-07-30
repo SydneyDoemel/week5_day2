@@ -7,8 +7,39 @@
 {% endblock %}
 
 {% block content %}
+<form method='POST' action="">
+  {{ form.hidden_tag() }}
 <h1 class="text-center">Saved Pokémon Characters</h1>
 <p class="text-center mt-3">You have no saved characters</p>
 <p>Go <a href="/">home</a> or <a href="/search">search for for Pokéman</a></p>
+
+
+<h1 class="row ">Save any Pokémon character</h1>
+<div class="row">{{ form.poke1_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
+<div class="row">{{ form.poke2_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
+<div class="row">{{ form.poke3_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
+<div class="row">{{ form.poke4_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
+<div class="row">{{ form.poke5_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
+<div class="row">{{ form.save(class='btn btn-light w-25 mt-3') }}</div>
+<a href="/saved_pokes" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Saved characters</div></a>
+
+{% if x %}
+<div class ='pokecard'>
+  <ul class="text-center">
+      <div class="mb-5 mt-5">
+        <li><h4> {{ x['Name'].title() }} </h4></li>
+        <li><img class='sprite' src="{{ x['front_shiny URL'] }}" alt="{{ x['Name'].title() }} Sprite"></li>
+      </div>
+      <li><p>Ability: {{ x['Ability'] }} </p></li>
+      <li><p>Base Experience: {{ x['Base Experience'] }} </p></li>
+      <li><p>Attack Base Stat: {{ x['attack base_stat'] }}</p></li>
+      <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
+      <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
+      <li method = "POST" action="/saved_pokes">{{ form.save(class="btn btn-light") }}</div></li>
+  </ul>
+</div>
+{% endif %} 
+
+</form>
 
 {% endblock %}

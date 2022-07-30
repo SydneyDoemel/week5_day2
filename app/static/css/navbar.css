@@ -1,0 +1,10 @@
+
+.stylefont{
+    font-family: 'Permanent Marker', cursive;
+}
+nav {
+    font-family: 'Courier Prime', monospace;
+}
+a:hover {
+    font-size: 1.1rem;
+}

@@ -23,3 +23,13 @@ a:hover {
     color: yellow;
     font-size: 1.7rem;
 }
+
+.stylefont{
+    font-family: 'Permanent Marker', cursive;
+}
+nav {
+    font-family: 'Courier Prime', monospace;
+}
+nav a:hover {
+    font-size: 1.1rem;
+}

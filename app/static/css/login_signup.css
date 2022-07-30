@@ -21,3 +21,13 @@ h1 {
 form {
     font-family: 'Courier Prime', monospace;
 }
+
+.stylefont{
+    font-family: 'Permanent Marker', cursive;
+}
+nav {
+    font-family: 'Courier Prime', monospace;
+}
+nav a:hover {
+    font-size: 1.1rem;
+}

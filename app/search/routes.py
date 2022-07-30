@@ -12,7 +12,7 @@ def searchPokes():
     if request.method == "POST":
         if form.validate():
             poke_you_want = form.pokefind.data
-            z = get_poke_func(str(poke_you_want))
+            z = get_poke_func(poke_you_want)
             x = z[0][poke_you_want]
             return render_template('search.html',form = form, x = x)
         else:
