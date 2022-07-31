@@ -28,11 +28,11 @@ class FivePokes(db.Model):
     user_id=db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
-    def __init__(self, poke1_name, poke2_name, poke3_name, poke4_name, poke5_name):
+    def __init__(self, poke1_name, poke2_name, poke3_name, poke4_name, poke5_name, user_id):
             self.poke1_name=poke1_name
             self.poke2_name=poke2_name
             self.poke3_name=poke3_name
             self.poke4_name=poke4_name
             self.poke5_name=poke5_name
-            user_id = 
+            self.user_id = user_id
           

@@ -14,17 +14,19 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      {% if current_user.is_authenticated %}
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/search">Search Characters</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/saved_pokes">Save Characters</a>
           </li>
+          {% endif %}
           <li class="nav-item dropdown">
-        {% endif %}
+       
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown
             </a>
@@ -32,8 +34,8 @@
                 {% if current_user.is_authenticated %}
                 <li><a class="dropdown-item" href="/logout">Log Out</a></li>
                 {% else %}
-              <li><a class="dropdown-item" href="/login">Log In</a></li>
-              <li><a class="dropdown-item" href="/singup">Sign Up</a></li>
+              <li><a class="dropdown-item fs-6" href="/login">Log In</a></li>
+              <li><a class="dropdown-item fs-6" href="/signup">Sign Up</a></li>
               {% endif %}
             </ul>
           </li>
