@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .forms import UserCreationForm
 from .forms import UserLoginForm
 from flask_login import login_user, logout_user, login_required, current_user
@@ -20,7 +20,7 @@ def logMeIn():
                     login_user(user)
                     return redirect(url_for('index'))
                 else:
-                    print('Incorrect password')
+                    flash('Incorrect password')
             else:
                 pass
     return render_template('login.html', form=form)

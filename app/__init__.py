@@ -6,6 +6,7 @@ from flask_login import LoginManager
 from .saved_pokes.routes import saved_pokes
 from .search.routes import search
 from .auth.routes import auth
+from .profile.routes import profile
 
 from .models import User
 
@@ -19,6 +20,8 @@ def load_user(user_id):
 app.register_blueprint(saved_pokes)
 app.register_blueprint(search)
 app.register_blueprint(auth)
+app.register_blueprint(profile)
+
 app.config.from_object(Config)
 
 from .models import db 

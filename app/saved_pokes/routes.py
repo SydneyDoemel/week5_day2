@@ -42,11 +42,9 @@ def savePoke():
             z = get_poke_func(poke_you_want)
             x = z[0][poke_you_want]
             poke5_name = x['Name']
-           # user_id = current_user.id
             new_poke = FivePokes(poke1_name, poke2_name, poke3_name, poke4_name, poke5_name, current_user.id)
             db.session.add(new_poke)
             db.session.commit()
-            print('should add')
             return redirect(url_for('index'))
         else:
             print('validation failed')

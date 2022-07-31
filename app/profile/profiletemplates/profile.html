@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Personal
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Change personal info</div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Accordion Item #2
+        </button>
+      </h2>
+
+
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            
+            {% if newlist %}
+            {% for each in newlist %}
+            <div class ='pokecard'>
+              <ul class="text-center">
+                  <div class="mb-5 mt-5">
+                    <li><h4> {{ each['Name'].title() }} </h4></li>
+                    <li><img class='sprite' src="{{ each['front_shiny URL'] }}" alt="{{ each['Name'].title() }} Sprite"></li>
+                  </div>
+                  <li><p>Ability: {{ each['Ability'] }} </p></li>
+                  <li><p>Base Experience: {{ each['Base Experience'] }} </p></li>
+                  <li><p>Attack Base Stat: {{ each['attack base_stat'] }}</p></li>
+                  <li><p>HP Base Stat: {{ each['hp base_stat'] }}</p></li>
+                  <li><p>Defense Base Stat: {{ each['defense base_stat'] }}</p></li>
+                  
+              </ul>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+{% endblock %}
