@@ -26,19 +26,19 @@
           <div class="mb-3 row">
           <label for="Email" class="col col-form-label text-start font-change">Email</label>
           <div class="col" id = "email">
-              {{ form.email(class="form-control w-100 font-change", id="Email", placeholder="Change Email?", autocomplete="off") }}
+              {{ form.email(class="form-control w-100 font-change", id="Email", placeholder=current_user.email, autocomplete="off") }}
           </div>
           </div>
           <div class="mb-3 row">
           <label for="inputUsername" class="col col-form-label text-start font-change">Username</label>
           <div class="col">
-            {{ form.username(class="form-control w-100 font-change", id="inputUsername", placeholder="Change Username?", autocomplete="off") }}
+            {{ form.username(class="form-control w-100 font-change", id="inputUsername", placeholder=current_user.username, autocomplete="off") }}
           </div>
           </div>
           <div class="mb-3 row">
           <label for="inputPassword" class="col col-form-label text-start font-change">Password</label>
           <div class="col">
-            {{ form.password(class="form-control w-100 font-change", id="inputPassword", placeholder="Change Password?", autocomplete="off") }}
+            {{ form.password(class="form-control w-100 font-change", id="inputPassword", placeholder="Password", autocomplete="off") }}
           </div>
           <div class="row font-change">
               {{ form.submit(class="btn btn-light mt-3") }}

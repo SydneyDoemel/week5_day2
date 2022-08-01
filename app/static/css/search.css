@@ -52,3 +52,7 @@ nav {
 }
 nav li:hover {
     color:white;}
+
+.search{
+    font-size: 4rem;
+}
