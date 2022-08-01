@@ -9,7 +9,15 @@ body {
     font-family: 'Permanent Marker', cursive;
     
 }
-
+.font-change {
+    font-family: 'Courier Prime', monospace;
+}
+.accordion1{
+   display: flex;
+   flex-direction: column;
+   margin: 0 22vw ;
+    
+}
 a {
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -29,23 +37,27 @@ h1 {
 .stylefont{
     font-family: 'Permanent Marker', cursive;
 }
-nav {
+nav, .click {
     font-family: 'Courier Prime', monospace;
 }
-nav li:hover {
-    color:white;}
+
+
 .accordion {
     margin: 10vh 20vh;
     
 }
+
+
 .pokecard {
     display: inline-flex;
-    border: solid 2px rgb(185, 185, 185, .4);
+    
     border-radius: 5%;
     padding-right: 25px;
     margin: 5px;
    width: 13rem;
     padding-top: 0px;
+    background-image: linear-gradient(180deg, rgb(234, 252, 255) 0%, rgb(255, 255, 255) 50%, rgb(234, 252, 255) 100%);
+    
 
 }
 .pokecard p {

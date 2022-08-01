@@ -25,8 +25,9 @@ form {
 .stylefont{
     font-family: 'Permanent Marker', cursive;
 }
-nav {
+nav, .click {
     font-family: 'Courier Prime', monospace;
 }
-nav li:hover {
-    color:white;}
+
+
+

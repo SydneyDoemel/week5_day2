@@ -15,31 +15,33 @@
           Edit Personal Information
         </button>
       </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse p-5" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body"><form class="container signupblock" method='POST' action="">
+      <div id="flush-collapseOne" class="accordion-collapse collapse p-5 accordion1" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+        <form class="container signupblock" method='POST' action="">
+      
           {{ form.hidden_tag() }}
           
           </div>
           
-          <div class="mb-3 row ">
-          <label for="Email" class="col-sm-3 col-form-label text-start ">Email</label>
-          <div class="col-sm-10" id = "email">
-              {{ form.email(class="form-control w-25", id="Email", placeholder="Change Email?", autocomplete="off") }}
+          <div class="mb-3 row">
+          <label for="Email" class="col col-form-label text-start font-change">Email</label>
+          <div class="col" id = "email">
+              {{ form.email(class="form-control w-100 font-change", id="Email", placeholder="Change Email?", autocomplete="off") }}
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="inputUsername" class="col-sm-3 col-form-label text-start">Username</label>
-          <div class="col-sm-10">
-            {{ form.username(class="form-control w-25", id="inputUsername", placeholder="Change Username?", autocomplete="off") }}
           </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="inputPassword" class="col-sm-3 col-form-label text-start">Password</label>
-          <div class="col-sm-10">
-            {{ form.password(class="form-control w-25", id="inputPassword", placeholder="Change Password?", autocomplete="off") }}
+          <div class="mb-3 row">
+          <label for="inputUsername" class="col col-form-label text-start font-change">Username</label>
+          <div class="col">
+            {{ form.username(class="form-control w-100 font-change", id="inputUsername", placeholder="Change Username?", autocomplete="off") }}
           </div>
-          <div class="col-sm-3">
-              {{ form.submit(class="btn btn-light") }}
+          </div>
+          <div class="mb-3 row">
+          <label for="inputPassword" class="col col-form-label text-start font-change">Password</label>
+          <div class="col">
+            {{ form.password(class="form-control w-100 font-change", id="inputPassword", placeholder="Change Password?", autocomplete="off") }}
+          </div>
+          <div class="row font-change">
+              {{ form.submit(class="btn btn-light mt-3") }}
             </div>
         </form></div>
       </div>
@@ -53,7 +55,7 @@
 
    
         
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div id="flush-collapseTwo" class="accordion-collapse collapse accordion2" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
             
             {% if newlist %}

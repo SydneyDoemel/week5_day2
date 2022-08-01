@@ -18,6 +18,7 @@ def savePoke():
     form = SavePokeInfo()
     user_ids=FivePokes.query.all()
     userlst = []
+    plst=[]
     for each in user_ids:
         userlst.append(each.user_id)
     if current_user.id in userlst:

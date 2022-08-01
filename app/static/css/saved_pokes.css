@@ -11,27 +11,21 @@ body {
 p {
     font-size: 1.5rem;
 }
-h1 {
-    font-size: 4rem;
-    padding-bottom: 2rem;
-}
+
 a {
     text-decoration: none;
     color: rgb(5, 156, 10);
 }
-a:hover {
-    color: yellow;
-    font-size: 1.7rem;
-}
+
 
 .stylefont{
     font-family: 'Permanent Marker', cursive;
 }
-nav {
+nav, .click {
     font-family: 'Courier Prime', monospace;
 }
-nav li:hover {
-    color:white;}
+
+
 
 .poke1, .poke2, .poke3, .poke4, .poke5 {
     font-family: 'Courier Prime', monospace ;
@@ -41,10 +35,11 @@ nav li:hover {
     width: 100%;
     height: auto;
     font-family: 'Courier Prime', monospace;
-    border: 2px solid rgb(152, 152, 152, .4);
+    
     border-radius: 5%;
     padding-right: 25px;
     margin: 5px;
+    background-image: linear-gradient(180deg, rgb(234, 252, 255) 0%, rgb(255, 255, 255) 50%, rgb(234, 252, 255) 100%);
     
 }
 ul {
@@ -52,10 +47,22 @@ ul {
 }
 .cards {
     display: flex;
+    justify-content: space-between;
     
 }
 .pokecard img {
     max-width: 150px;
     width: 100%;
     height: auto;
+}
+.save {
+    font-family: 'Courier Prime', monospace ;
+}
+.save1 {
+    margin-left: 10vw;
+}
+
+
+.save1 h1{
+    font-size: 3rem;
 }
