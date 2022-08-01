@@ -9,34 +9,46 @@
 {% block content %}
 <form method='POST' action="">
   {{ form.hidden_tag() }}
-<h1 class="text-center">Saved Pokémon Characters</h1>
-<p class="text-center mt-3">You have no saved characters</p>
-<p>Go <a href="/">home</a> or <a href="/search">search for for Pokéman</a></p>
 
 
+{% if current_user.id not in userlst %}
 <h1 class="row ">Save any Pokémon character</h1>
-<div class="row">{{ form.poke1_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
-<div class="row">{{ form.poke2_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
-<div class="row">{{ form.poke3_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
-<div class="row">{{ form.poke4_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
-<div class="row">{{ form.poke5_name(class='form-control  mt-5 w-50 ', placeholder='Save a Poke!') }}</div>
-<div class="row">{{ form.save(class='btn btn-light w-25 mt-3') }}</div>
-<a href="/saved_pokes" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Saved characters</div></a>
+<div class="row">{{ form.poke1_name(class='form-control  mt-5 w-25 ', placeholder='Save Poke #1!') }}</div>
+<div class="row">{{ form.poke2_name(class='form-control  mt-5 w-25 ', placeholder='Save Poke #2!') }}</div>
+<div class="row">{{ form.poke3_name(class='form-control  mt-5 w-25 ', placeholder='Save Poke #3!') }}</div>
+<div class="row">{{ form.poke4_name(class='form-control  mt-5 w-25 ', placeholder='Save Poke #4!') }}</div>
+<div class="row">{{ form.poke5_name(class='form-control  mt-5 w-25 ', placeholder='Save Poke #5!') }}</div>
+<div class="row" >{{ form.save(class='btn btn-light w-25 mt-3', action='/profile') }}</div>
 
-{% if x %}
-<div class ='pokecard'>
+
+{% else %}
+
+<a href="/profile" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Your Saved characters</div></a>
+<a href="/update_pokes" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Update or change characters</div></a>
+{% endif %}
+
+{% if plst %}
+<div class="cards">
+{% for x in plst %}
+
+<div class ='pokecard' style="width: 18rem;">
   <ul class="text-center">
+    
       <div class="mb-5 mt-5">
         <li><h4> {{ x['Name'].title() }} </h4></li>
         <li><img class='sprite' src="{{ x['front_shiny URL'] }}" alt="{{ x['Name'].title() }} Sprite"></li>
       </div>
-      <li><p>Ability: {{ x['Ability'] }} </p></li>
-      <li><p>Base Experience: {{ x['Base Experience'] }} </p></li>
-      <li><p>Attack Base Stat: {{ x['attack base_stat'] }}</p></li>
-      <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
-      <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
-      <li method = "POST" action="/saved_pokes">{{ form.save(class="btn btn-light") }}</div></li>
+    
+      <ul class="">
+      <li><p class=" fs-6">Ability: {{ x['Ability'] }} </p></li>
+      <li><p class=" fs-6">Base Experience: {{ x['Base Experience'] }} </p></li>
+      <li><p class=" fs-6">Attack Base Stat: {{ x['attack base_stat'] }}</p></li>
+      <li><p class=" fs-6">HP Base Stat: {{ x['hp base_stat'] }}</p></li>
+      <li><p class=" fs-6">Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
+    </ul>
   </ul>
+</div>
+{% endfor %}
 </div>
 {% endif %} 
 

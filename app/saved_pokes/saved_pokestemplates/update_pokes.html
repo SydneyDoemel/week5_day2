@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/saved_pokes.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<form method='POST' action="">
+  {{ form.hidden_tag() }}
+  <h1>Update Your Pokéman</h1>
+ <div class="row">{{ form.poke1_name(class='form-control  mt-5 w-25 ', placeholder='Save or Replace Poke #1!', value =new_pokes.poke1_name) }}</div>
+  <div class="row">{{ form.poke2_name(class='form-control  mt-5 w-25 ', placeholder='Save or Replace Poke #2!', value =new_pokes.poke2_name) }}</div>
+  <div class="row">{{ form.poke3_name(class='form-control  mt-5 w-25 ', placeholder='Save or Replace Poke #3!', value =new_pokes.poke3_name) }}</div>
+  <div class="row">{{ form.poke4_name(class='form-control  mt-5 w-25 ', placeholder='Save or Replace Poke #4!', value =new_pokes.poke4_name) }}</div>
+  <div class="row">{{ form.poke5_name(class='form-control  mt-5 w-25 ', placeholder='Save or Replace Poke #5!', value =new_pokes.poke5_name) }}</div>
+  <div class="row" >{{ form.save(class='btn btn-light w-25 mt-3') }}</div>
+  <a href="/profile" class="col"><div class="btn btn-light mt-3 ml-0 pl-0"> Saved characters</div></a>
+{% endblock %}

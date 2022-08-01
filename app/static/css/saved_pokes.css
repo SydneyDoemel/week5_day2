@@ -4,7 +4,7 @@ body {
     color: rgb(0, 0, 0);
     text-align: center;
     padding: 5vh;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Courier Prime', monospace;
    
     
 }
@@ -32,3 +32,30 @@ nav {
 }
 nav li:hover {
     color:white;}
+
+.poke1, .poke2, .poke3, .poke4, .poke5 {
+    font-family: 'Courier Prime', monospace ;
+}
+.pokecard {
+    max-width: 16rem;
+    width: 100%;
+    height: auto;
+    font-family: 'Courier Prime', monospace;
+    border: 2px solid rgb(152, 152, 152, .4);
+    border-radius: 5%;
+    padding-right: 25px;
+    margin: 5px;
+    
+}
+ul {
+    list-style: none;
+}
+.cards {
+    display: flex;
+    
+}
+.pokecard img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+}
