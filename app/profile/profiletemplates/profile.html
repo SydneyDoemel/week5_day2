@@ -2,51 +2,83 @@
 {% block head %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 {% endblock %}
 {% block content %}
-<div class="accordion accordion-flush" id="accordionFlushExample">
+<div class="accordion accordion-flush " id="accordionFlushExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          Personal
+          Edit Personal Information
         </button>
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Change personal info</div>
+        <div class="accordion-body"><form class="container signupblock" method='POST' action="">
+          {{ form.hidden_tag() }}
+          
+          </div>
+          
+          <div class="mb-3 row">
+          <label for="Email" class="col-sm-3 col-form-label">Email</label>
+          <div class="col-sm-10" id = "email">
+              {{ form.email(class="form-control", id="Email", placeholder="email@example.com", autocomplete="off") }}
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputUsername" class="col-sm-3 col-form-label">Username</label>
+          <div class="col-sm-10">
+            {{ form.username(class="form-control", id="inputUsername", placeholder="Username", autocomplete="off") }}
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+          <div class="col-sm-10">
+            {{ form.password(class="form-control", id="inputPassword", placeholder="Password", autocomplete="off") }}
+          </div>
+          <div class="col-sm-3">
+              {{ form.submit(class="btn btn-light") }}
+            </div>
+        </form></div>
       </div>
     </div>
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingTwo">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          Accordion Item #2
+          Your Saved Pokéman
         </button>
       </h2>
 
-
+        {% if error %}
+        <p>{{error}}</p>
+        {% else %}
       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
             
             {% if newlist %}
             {% for each in newlist %}
             <div class ='pokecard'>
-              <ul class="text-center">
+              <ul>
                   <div class="mb-5 mt-5">
-                    <li><h4> {{ each['Name'].title() }} </h4></li>
+                    <li><h4 class="text-center"> {{ each['Name'].title() }} </h4></li>
                     <li><img class='sprite' src="{{ each['front_shiny URL'] }}" alt="{{ each['Name'].title() }} Sprite"></li>
                   </div>
-                  <li><p>Ability: {{ each['Ability'] }} </p></li>
-                  <li><p>Base Experience: {{ each['Base Experience'] }} </p></li>
-                  <li><p>Attack Base Stat: {{ each['attack base_stat'] }}</p></li>
-                  <li><p>HP Base Stat: {{ each['hp base_stat'] }}</p></li>
-                  <li><p>Defense Base Stat: {{ each['defense base_stat'] }}</p></li>
+                  <li><p><b>Ability:</b> {{ each['Ability'].title() }} </p></li>
+                  <li><p><b>Base Experience:</b> {{ each['Base Experience'] }} </p></li>
+                  <li><p><b>Attack Base Stat:</b> {{ each['attack base_stat'] }}</p></li>
+                  <li><p><b>HP Base Stat:</b> {{ each['hp base_stat'] }}</p></li>
+                  <li><p><b>Defense Base Stat:</b> {{ each['defense base_stat'] }}</p></li>
+                  <div class="divider"></div>
+                  <li><p><b>Total:</b> {{ each['Base Experience']+each['attack base_stat'] + each['hp base_stat'] +  each['defense base_stat'] }}</p></li>
                   
               </ul>
             </div>
             {% endfor %}
+            {% else %}
+            <p>{{ error }}</p>
+            {% endif %}
             {% endif %}
 
         </div>

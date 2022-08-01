@@ -9,11 +9,15 @@ body {
     font-family: 'Permanent Marker', cursive;
     
 }
-
+img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
 a {
     color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .click:hover {
     color: yellow;
@@ -26,9 +30,28 @@ h1 {
 .stylefont{
     font-family: 'Permanent Marker', cursive;
 }
-nav {
+nav, .click {
     font-family: 'Courier Prime', monospace;
 }
-nav a:hover {
-    font-size: 1.1rem;
+.nav-link:hover {
+    color:white;}
+
+.rankings {
+    width: 30vw;
+    margin: auto;
+    border: 1px solid white;
+    padding: 2rem 4rem;
+    
+}
+.header {
+    padding-bottom: 13vh;
+}
+ol {
+    font-family: 'Courier Prime', monospace;
+}
+.rankings h1 {
+    font-size: 2.6vw;
+    padding-bottom: 4vh;
+
+   
 }

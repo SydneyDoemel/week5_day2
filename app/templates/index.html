@@ -7,12 +7,26 @@
 {% endblock %}
 
 {% block content %}
+<div class="header">
 <h1>Welcome</h1>
 <div><img src="https://pngimg.com/uploads/pokemon/pokemon_PNG98.png" alt=""></div>
 {% if current_user.is_authenticated %}
 <a href="/search" class="click">Click here to search for Pokémon</a>
-
 {% endif %}
+</div>
 
+<div class="rankings">
+<h1>Current Rankings</h1>
+<ol class="text-start">
+{% for each in scores %}
+    {% if scores_dict[each] == current_user.username %}
+    <li style="color:rgb(179, 21, 0);">{{ scores_dict[each].title() }}: {{ each }}</li>
+    
+{% else %}
+<li>{{ scores_dict[each].title() }}: {{ each }}</li>
+{% endif %}
+{% endfor %}
+</ol>
+</div>
 
 {% endblock %}

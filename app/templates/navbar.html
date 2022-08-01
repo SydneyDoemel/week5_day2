@@ -10,7 +10,7 @@
 {% block content %}
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand stylefont" href="/">PokéFinder</a>
+      <a class="navbar-brand stylefont pb-4" href="/">PokéFinder</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,24 +24,25 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/saved_pokes">Save Characters</a>
           </li>
+          
           {% endif %}
           <li class="nav-item dropdown">
-       
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
             </a>
             <ul class="dropdown-menu">
                 {% if current_user.is_authenticated %}
                 <li><a class="dropdown-item fs-6" href="/logout">Log Out</a></li>
+                <li><a class="dropdown-item fs-6" href="/profile">Profile/Settings</a></li>
                 {% else %}
               <li><a class="dropdown-item fs-6" href="/login">Log In</a></li>
               <li><a class="dropdown-item fs-6" href="/signup">Sign Up</a></li>
               {% endif %}
             </ul>
           </li>
+          
           {% if current_user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="/profile">Hello, {{ current_user.username }}</a>
+            <p class="nav-link">Hello, {{ current_user.username.title() }}</p>
           </li>
           {% endif %}
         </ul>

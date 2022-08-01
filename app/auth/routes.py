@@ -3,6 +3,8 @@ from .forms import UserCreationForm
 from .forms import UserLoginForm
 from flask_login import login_user, logout_user, login_required, current_user
 
+from werkzeug.security import check_password_hash
+
 from app.models import User
 auth = Blueprint('auth', __name__, template_folder = 'authtemplates')
 from app.models import db
@@ -16,7 +18,7 @@ def logMeIn():
             password = form.password.data
             user = User.query.filter_by(username = username).first()
             if user:
-                if password == user.password:
+                if check_password_hash(user.password, password):
                     login_user(user)
                     return redirect(url_for('index'))
                 else:
@@ -35,9 +37,12 @@ def signMeUp():
             password = form.password.data
 
             user = User(username, email, password)
-            db.session.add(user)
-            db.session.commit()
-            return redirect(url_for('auth.logMeIn'))
+            try:
+                db.session.add(user)
+                db.session.commit()
+                return redirect(url_for('auth.logMeIn'))
+            except:
+                pass
         else:
             print('validation failed')
     return render_template('signup.html', form = form)

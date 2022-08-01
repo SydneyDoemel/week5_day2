@@ -13,3 +13,10 @@ class UserLoginForm(FlaskForm):
     email = StringField('Email', validators = [DataRequired()])
     password = PasswordField('Password', validators = [DataRequired()])
     submit = SubmitField()
+
+class UserUpdateForm(FlaskForm):
+    username = StringField('Username')
+    email = StringField('Email')
+    password = PasswordField('Password')
+    confirm_password = PasswordField('Confirm Password')
+    submit = SubmitField()

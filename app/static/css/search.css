@@ -47,6 +47,5 @@ ul h4 {
 nav {
     font-family: 'Courier Prime', monospace;
 }
-nav a:hover {
-    font-size: 1.1rem;
-}
+nav li:hover {
+    color:white;}
