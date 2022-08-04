@@ -32,6 +32,14 @@
       <li><p>HP Base Stat: {{ x['hp base_stat'] }}</p></li>
       <li><p>Defense Base Stat: {{ x['defense base_stat'] }}</p></li>
       
+      {% for p in caught %}
+        {% if p.flag %}
+          <li><a class="btn btn-danger" >Delete Poke</a></li>
+        {% else %}
+          <li><a class="btn btn-primary" href="{{ url_for('search.catchPoke', new_poke = p.id)}}">Add Poke</a></li>
+        {% endif %}
+      {% endfor %}
+      
   </ul>
 </div>
 {% endif %} 
